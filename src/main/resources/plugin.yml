@@ -1,0 +1,43 @@
+name: FrizzlenEco
+version: '1.0-SNAPSHOT'
+main: org.frizzlenpop.frizzlenEco.FrizzlenEco
+api-version: '1.21'
+load: STARTUP
+authors: [ frizzlenpop ]
+description: A comprehensive economy plugin for Minecraft servers
+
+commands:
+  money:
+    description: Check your balance
+    usage: /money [player] [currency]
+    aliases: [balance, bal]
+  pay:
+    description: Pay another player
+    usage: /pay <player> <amount> [currency]
+  bank:
+    description: Bank account management
+    usage: /bank <balance|deposit|withdraw|transfer|list>
+  ecoadmin:
+    description: Administrative economy commands
+    usage: /ecoadmin <give|take|set|reset|create|reload>
+    permission: frizzleneco.admin
+
+permissions:
+  frizzleneco.admin:
+    description: Allows access to administrative economy commands
+    default: op
+  frizzleneco.admin.negative:
+    description: Allows setting negative balances
+    default: op
+  frizzleneco.balance:
+    description: Allows checking your own balance
+    default: true
+  frizzleneco.balance.others:
+    description: Allows checking other players' balances
+    default: true
+  frizzleneco.pay:
+    description: Allows paying other players
+    default: true
+  frizzleneco.bank:
+    description: Allows using bank commands
+    default: true

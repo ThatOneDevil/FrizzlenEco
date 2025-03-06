@@ -1,0 +1,55 @@
+# FrizzlenEco Configuration
+
+# Database settings
+database:
+  # Database type: sqlite or mysql
+  type: sqlite
+  
+  # SQLite settings
+  sqlite:
+    file: database.db
+  
+  # MySQL settings
+  mysql:
+    host: localhost
+    port: 3306
+    database: frizzleneco
+    username: username
+    password: password
+    useSSL: false
+
+# General settings
+general:
+  # Command prefix for messages
+  commandPrefix: "&a[FrizzlenEco]&r"
+  
+  # Balance format
+  # Available placeholders: %currency%, %amount%
+  balanceFormat: "&e%currency% %amount%"
+  
+  # Interest settings
+  enableInterest: true
+  # Interest interval in minutes (1440 = 24 hours)
+  interestInterval: 1440
+  
+  # Enable metrics collection
+  enableMetrics: true
+  
+  # Enable update checks
+  enableUpdateChecks: true
+
+# Transaction settings
+transactions:
+  # Log transactions to database
+  logTransactions: true
+  
+  # Minimum amount for transactions
+  minimumAmount: 0.01
+  
+  # Maximum amount for transactions (0 for no limit)
+  maximumAmount: 0
+  
+  # Tax settings
+  enableTax: false
+  taxRate: 0.05
+  taxAccount: "server" 
