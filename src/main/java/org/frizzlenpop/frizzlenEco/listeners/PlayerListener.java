@@ -36,7 +36,7 @@ public class PlayerListener implements Listener {
         Player player = event.getPlayer();
         
         // Run in async task to avoid lag on join
-        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+        plugin.getServer().getScheduler().runTask(plugin, () -> {
             try {
                 // Ensure player has an account for the default currency
                 Currency defaultCurrency = economyManager.getDefaultCurrency();
