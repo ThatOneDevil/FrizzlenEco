@@ -221,7 +221,7 @@ public class BankCommands implements CommandExecutor, TabCompleter {
         }
 
         BigDecimal balance = economyManager.getBalance(player.getUniqueId(), currency);
-        if (amount > balance){
+        if (amount.compareTo(balance) > 0){
             MessageUtil.sendError(sender, "Insufficient funds!");
             return true;
         }
