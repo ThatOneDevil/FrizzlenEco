@@ -219,6 +219,12 @@ public class BankCommands implements CommandExecutor, TabCompleter {
                 return true;
             }
         }
+
+        BigDecimal balance = economyManager.getBalance(player.getUniqueId(), currency);
+        if (amount.compareTo(balance) > 0){
+            MessageUtil.sendError(sender, "Insufficient funds!");
+            return true;
+        }
         
         // Perform deposit
         UUID playerUuid = player.getUniqueId();
