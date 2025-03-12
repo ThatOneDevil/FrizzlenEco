@@ -102,13 +102,14 @@ public class DatabaseManager {
             }
         } else if (settings.isMySQL()) {
             try {
-                Class.forName("com.mysql.jdbc.Driver");
+                Class.forName("com.mysql.cj.jdbc.Driver");
                 
-                String url = "jdbc:mysql://" + settings.getHost() + ":" + settings.getPort() + "/" + settings.getDatabase();
+                String url = "jdbc:mysql://" + settings.getHost() + ":" + settings.getPort() + "/" + settings.getDatabase()
+                    + "?useUnicode=true&characterEncoding=utf8&useSSL=" + settings.isUseSSL()
+                    + "&allowPublicKeyRetrieval=true&serverTimezone=UTC";
                 Properties properties = new Properties();
                 properties.setProperty("user", settings.getUsername());
                 properties.setProperty("password", settings.getPassword());
-                properties.setProperty("useSSL", String.valueOf(settings.isUseSSL()));
                 
                 connection = DriverManager.getConnection(url, properties);
                 

@@ -12,6 +12,7 @@ import org.frizzlenpop.frizzlenEco.database.DatabaseManager;
 import org.frizzlenpop.frizzlenEco.economy.EconomyManager;
 import org.frizzlenpop.frizzlenEco.listeners.PlayerListener;
 import org.frizzlenpop.frizzlenEco.metrics.MetricsManager;
+import org.frizzlenpop.frizzlenEco.vault.VaultHook;
 
 import java.util.logging.Level;
 
@@ -22,6 +23,7 @@ public final class FrizzlenEco extends JavaPlugin {
     private EconomyManager economyManager;
     private EconomyAPI economyAPI;
     private MetricsManager metricsManager;
+    private VaultHook vaultHook;
 
     @Override
     public void onEnable() {
@@ -58,11 +60,19 @@ public final class FrizzlenEco extends JavaPlugin {
         metricsManager = new MetricsManager(this);
         metricsManager.initialize();
         
+        // Initialize Vault hook
+        initializeVaultHook();
+        
         getLogger().info("FrizzlenEco has been enabled!");
     }
 
     @Override
     public void onDisable() {
+        // Unhook from Vault
+        if (vaultHook != null && vaultHook.isHooked()) {
+            vaultHook.unhook();
+        }
+        
         if (economyManager != null) {
             economyManager.shutdown();
         }
@@ -94,6 +104,19 @@ public final class FrizzlenEco extends JavaPlugin {
         }
     }
     
+    private void initializeVaultHook() {
+        try {
+            vaultHook = new VaultHook(this);
+            if (vaultHook.hook()) {
+                getLogger().info("Successfully hooked into Vault!");
+            } else {
+                getLogger().warning("Failed to hook into Vault. Vault integration disabled.");
+            }
+        } catch (Exception e) {
+            getLogger().log(Level.SEVERE, "Error initializing Vault hook", e);
+        }
+    }
+    
     // Static accessor for the plugin instance
     public static FrizzlenEco getInstance() {
         return instance;
@@ -118,5 +141,9 @@ public final class FrizzlenEco extends JavaPlugin {
     
     public MetricsManager getMetricsManager() {
         return metricsManager;
+    }
+    
+    public VaultHook getVaultHook() {
+        return vaultHook;
     }
 }

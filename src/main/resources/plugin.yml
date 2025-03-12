@@ -5,6 +5,7 @@ api-version: '1.21'
 load: STARTUP
 authors: [ frizzlenpop ]
 description: A comprehensive economy plugin for Minecraft servers
+depend: [Vault]
 
 commands:
   money:
