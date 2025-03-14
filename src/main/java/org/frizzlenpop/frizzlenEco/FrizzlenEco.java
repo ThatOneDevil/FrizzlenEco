@@ -5,7 +5,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.frizzlenpop.frizzlenEco.api.EconomyAPI;
 import org.frizzlenpop.frizzlenEco.api.EconomyProvider;
 import org.frizzlenpop.frizzlenEco.commands.AdminCommands;
-import org.frizzlenpop.frizzlenEco.commands.BankCommands;
 import org.frizzlenpop.frizzlenEco.commands.EconomyCommands;
 import org.frizzlenpop.frizzlenEco.config.ConfigManager;
 import org.frizzlenpop.frizzlenEco.database.DatabaseManager;
@@ -87,7 +86,6 @@ public final class FrizzlenEco extends JavaPlugin {
     private void registerCommands() {
         try {
             new EconomyCommands(this);
-            new BankCommands(this);
             new AdminCommands(this);
             getLogger().info("Commands registered successfully");
         } catch (Exception e) {

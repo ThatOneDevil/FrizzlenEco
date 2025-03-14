@@ -15,9 +15,6 @@ commands:
   pay:
     description: Pay another player
     usage: /pay <player> <amount> [currency]
-  bank:
-    description: Bank account management
-    usage: /bank <balance|deposit|withdraw|transfer|list>
   ecoadmin:
     description: Administrative economy commands
     usage: /ecoadmin <give|take|set|reset|create|reload>
@@ -38,7 +35,4 @@ permissions:
     default: true
   frizzleneco.pay:
     description: Allows paying other players
-    default: true
-  frizzleneco.bank:
-    description: Allows using bank commands
     default: true

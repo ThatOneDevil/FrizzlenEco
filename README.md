@@ -6,12 +6,10 @@ A comprehensive economy plugin for Minecraft 1.21 Paper Spigot servers.
 
 - **Multiple Currency Support**: Create and manage multiple currencies with different properties
 - **Player Wallets**: Players can have accounts in different currencies
-- **Bank System**: Deposit, withdraw, and transfer money between accounts
 - **Admin Tools**: Powerful commands for server administrators to manage the economy
 - **API**: Comprehensive API for other plugins to interact with the economy
 - **Database Support**: Store economy data in SQLite or MySQL
 - **Metrics**: Track economy statistics and transactions
-- **Interest System**: Configurable interest rates for bank accounts
 
 ## Commands
 
@@ -20,11 +18,6 @@ A comprehensive economy plugin for Minecraft 1.21 Paper Spigot servers.
 - `/money [player] [currency]` - Check your balance or another player's balance
 - `/balance [player] [currency]` - Alias for /money
 - `/pay <player> <amount> [currency]` - Pay another player
-- `/bank balance [currency]` - Check your bank balance
-- `/bank deposit <amount> [currency]` - Deposit money into your bank
-- `/bank withdraw <amount> [currency]` - Withdraw money from your bank
-- `/bank transfer <player> <amount> [currency]` - Transfer money from your bank to another player's bank
-- `/bank list` - List all your bank accounts
 
 ### Admin Commands
 
@@ -42,7 +35,6 @@ A comprehensive economy plugin for Minecraft 1.21 Paper Spigot servers.
 - `frizzleneco.balance` - Check your own balance
 - `frizzleneco.balance.others` - Check other players' balances
 - `frizzleneco.pay` - Pay other players
-- `frizzleneco.bank` - Use bank commands
 
 ## Configuration
 
@@ -61,7 +53,6 @@ Currencies are configured in `currencies.yml`. Each currency has the following p
 - `initialBalance` - Balance given to new accounts
 - `minBalance` - Minimum allowed balance
 - `maxBalance` - Maximum allowed balance
-- `interestRate` - Interest rate for this currency
 - `allowNegative` - Whether negative balances are allowed
 - `isEnabled` - Whether this currency is enabled
 

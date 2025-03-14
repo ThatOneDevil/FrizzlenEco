@@ -38,9 +38,8 @@ public class VaultEconomyProvider implements Economy {
 
     @Override
     public boolean hasBankSupport() {
-        // FrizzlenEco supports bank accounts if the economy manager has that feature
-        // This may need to be adjusted based on actual implementation
-        return true;
+        // FrizzlenEco no longer supports bank accounts
+        return false;
     }
 
     @Override
